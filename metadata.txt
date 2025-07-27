@@ -2,14 +2,51 @@
 name=MIF/TAB to SHP/GeoJSON Converter
 qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
-description=Professional multilingual converter for MapInfo files
-version=2.2.0
-author=Alex Kobyakov
+description=Professional multilingual converter for MapInfo files with modular architecture
+version=2.3.0
+author=Кобяков Александр Викторович (Alex Kobyakov)
 email=kobyakov@lesburo.ru
-about=Professional plugin for converting MapInfo files to Shapefile and GeoJSON with batch processing and multithreading support
+
+about=🌟 Professional plugin for converting MapInfo Interchange Format (MIF/MID) and MapInfo TAB files to ESRI Shapefile or GeoJSON format with comprehensive multilingual support and modular architecture.
+    
+    🚀 Key Features:
+    • 🏗️ Modular architecture with separated GUI components
+    • 📁 Support for both MIF/MID and TAB input formats
+    • 🌐 Export to Shapefile (.shp) or GeoJSON (.geojson) formats
+    • 📄 Single file or batch folder processing
+    • ⚡ Multithreading support (1-16 threads) for faster processing
+    • 🌍 Coordinate system specification (EPSG, PROJ4, WKT)
+    • 📊 Detailed progress tracking with modern progress bar
+    • 📋 Comprehensive logging with color-coded messages
+    • 📈 Results table with file-by-file status tracking
+    • 🌐 Multilingual interface supporting 9 major world languages
+    • 🎨 Modern, professional UI design with icons and gradients
+    • ✅ Auto-add converted layers to QGIS project
+    • 📖 Built-in CRS examples and help system
+    • 🛡️ Safe cancellation of running processes
+    • 📊 Conversion statistics and completion notifications
+    • 🔄 RTL (Right-to-Left) support for Arabic language
+    
+    🏗️ Architecture Improvements:
+    • gui/ package with modular components
+    • translations.py - Enhanced multilingual system
+    • worker.py - Separated processing logic
+    • Improved code maintainability and extensibility
+    
+    🌐 Supported Languages (9 languages):
+    • 🇷🇺 Русский (Russian) - Complete translation
+    • 🇺🇸 English - Complete translation
+    • 🇨🇳 中文 (Chinese) - Complete translation
+    • 🇮🇳 हिंदी (Hindi) - Complete translation
+    • 🇪🇸 Español (Spanish) - Complete translation
+    • 🇸🇦 العربية (Arabic) - Complete translation with RTL support
+    • 🇫🇷 Français (French) - Complete translation
+    • 🇧🇷 Português (Portuguese) - Complete translation
+    • 🇩🇪 Deutsch (German) - Complete translation
+
 tracker=
 repository=https://github.com/AlexKobyakov/mif_to_shp_converter
-tags=converter,mapinfo,mif,tab,shapefile,geojson
+tags=converter,mapinfo,mif,tab,shapefile,geojson,batch,multithreading,multilingual,modular,architecture,rtl,arabic,chinese,hindi,spanish,french,german,portuguese,modern,ui,professional,gis
 homepage=
 category=Vector
 icon=icon.png
@@ -17,7 +54,8 @@ experimental=False
 deprecated=False
 hasProcessingProvider=no
 
-changelog=2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI with icons, gradients, and improved design
+changelog=2.3.0 - Modular architecture implementation; GUI separated into components; Enhanced multilingual system with 9 languages; RTL support for Arabic; Modern UI design preservation; Improved code maintainability
+    2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI with icons, gradients, and improved design
     2.1.0 - Added TAB format support, GeoJSON export, multilingual interface (Russian/English), enhanced metadata
     2.0.0 - Added batch processing, multithreading, progress tracking and detailed logging
     1.0.0 - Initial version with basic MIF to SHP conversion
