@@ -2,14 +2,41 @@
 name=MIF/TAB to SHP/GeoJSON Converter
 qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
-description=Professional multilingual converter for MapInfo files
-version=2.2.0
-author=Alex Kobyakov
+description=Professional multilingual converter with clean minimalist interface
+version=2.4.0
+author=Кобяков Александр Викторович (Alex Kobyakov)
 email=kobyakov@lesburo.ru
-about=Professional plugin for converting MapInfo files to Shapefile and GeoJSON with batch processing and multithreading support
+
+about=🌟 Professional plugin for converting MapInfo files with a clean, minimalist interface design focused on efficiency and simplicity.
+    
+    🎨 Design Philosophy:
+    • 🧹 Clean, minimalist user interface
+    • 📱 Streamlined workflow for better productivity
+    • 🎯 Focus on essential functionality
+    • ⚡ Faster navigation and reduced visual complexity
+    • 🔍 Better focus on core conversion tasks
+    
+    🚀 Core Features:
+    • 📁 Support for both MIF/MID and TAB input formats
+    • 🌐 Export to Shapefile (.shp) or GeoJSON (.geojson) formats
+    • 📄 Single file or batch folder processing
+    • ⚡ Multithreading support (1-16 threads)
+    • 🌍 Coordinate system specification (EPSG, PROJ4, WKT)
+    • 📊 Simplified progress tracking
+    • 📋 Essential logging functionality
+    • 🌐 Multilingual interface (9 languages)
+    • ✅ Auto-add converted layers to QGIS project
+    
+    🎯 UI/UX Improvements:
+    • Reduced visual clutter
+    • Simplified control layout
+    • Optimized for daily workflow
+    • Enhanced accessibility
+    • Faster task completion
+
 tracker=
 repository=https://github.com/AlexKobyakov/mif_to_shp_converter
-tags=converter,mapinfo,mif,tab,shapefile,geojson
+tags=converter,mapinfo,mif,tab,shapefile,geojson,minimalist,clean,ui,simple,efficient,professional,gis
 homepage=
 category=Vector
 icon=icon.png
@@ -17,7 +44,9 @@ experimental=False
 deprecated=False
 hasProcessingProvider=no
 
-changelog=2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI with icons, gradients, and improved design
-    2.1.0 - Added TAB format support, GeoJSON export, multilingual interface (Russian/English), enhanced metadata
-    2.0.0 - Added batch processing, multithreading, progress tracking and detailed logging
+changelog=2.4.0 - Minimalist GUI implementation; Simplified interface design; Streamlined workflow; Reduced visual complexity; Enhanced user productivity; Clean layout optimization
+    2.3.0 - Modular architecture implementation; GUI components separation; Enhanced multilingual system
+    2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI with icons and gradients
+    2.1.0 - Added TAB format support, GeoJSON export, multilingual interface
+    2.0.0 - Added batch processing, multithreading, progress tracking
     1.0.0 - Initial version with basic MIF to SHP conversion
