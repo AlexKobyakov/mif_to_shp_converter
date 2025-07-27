@@ -1,0 +1,18 @@
+[general]
+name=MIF/TAB to SHP/GeoJSON Converter
+qgisMinimumVersion=3.0
+qgisMaximumVersion=3.99
+description=Professional multilingual converter for MapInfo files
+version=2.2.0
+author=Alex Kobyakov
+email=kobyakov@lesburo.ru
+about=Professional plugin for converting MapInfo files to Shapefile and GeoJSON with batch processing and multithreading support
+tracker=
+repository=
+tags=converter,mapinfo,mif,tab,shapefile,geojson
+homepage=
+category=Vector
+icon=icon.png
+experimental=False
+deprecated=False
+hasProcessingProvider=no
