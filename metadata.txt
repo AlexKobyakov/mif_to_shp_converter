@@ -8,7 +8,7 @@ author=Alex Kobyakov
 email=kobyakov@lesburo.ru
 about=Professional plugin for converting MapInfo files to Shapefile and GeoJSON with batch processing and multithreading support
 tracker=
-repository=
+repository=https://github.com/AlexKobyakov/mif_to_shp_converter
 tags=converter,mapinfo,mif,tab,shapefile,geojson
 homepage=
 category=Vector
@@ -16,3 +16,8 @@ icon=icon.png
 experimental=False
 deprecated=False
 hasProcessingProvider=no
+
+changelog=2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI with icons, gradients, and improved design
+    2.1.0 - Added TAB format support, GeoJSON export, multilingual interface (Russian/English), enhanced metadata
+    2.0.0 - Added batch processing, multithreading, progress tracking and detailed logging
+    1.0.0 - Initial version with basic MIF to SHP conversion
