@@ -2,14 +2,44 @@
 name=MIF/TAB to SHP/GeoJSON Converter
 qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
-description=Professional multilingual converter for MapInfo files
-version=2.2.0
-author=Alex Kobyakov
+description=Next generation MapInfo converter with enhanced processing capabilities
+version=3.0.0
+author=Кобяков Александр Викторович (Alex Kobyakov)
 email=kobyakov@lesburo.ru
-about=Professional plugin for converting MapInfo files to Shapefile and GeoJSON with batch processing and multithreading support
+
+about=🚀 Next generation professional plugin for MapInfo file conversion with significantly enhanced processing capabilities and improved architecture.
+    
+    🔧 Major Enhancements:
+    • 🏗️ Next-generation processing architecture
+    • ⚡ Enhanced conversion algorithms for better performance
+    • 🛡️ Improved error handling and validation systems
+    • 📊 Extended format support and compatibility
+    • 🔍 Advanced geometry processing capabilities
+    • 💾 Better memory management for large datasets
+    • 🎯 Enhanced precision in coordinate transformations
+    
+    🚀 Core Features:
+    • 📁 Advanced MIF/MID and TAB file support
+    • 🌐 Enhanced Shapefile and GeoJSON export
+    • 📄 Optimized batch processing algorithms
+    • ⚡ Improved multithreading (up to 32 threads)
+    • 🌍 Advanced CRS handling and transformations
+    • 📊 Real-time progress monitoring
+    • 📋 Comprehensive error reporting
+    • 🌐 Full multilingual support (9 languages)
+    • 🎨 Refined user interface
+    • ✅ Enhanced QGIS project integration
+    
+    🔬 Technical Improvements:
+    • Refactored codebase for better maintainability
+    • Enhanced data validation algorithms
+    • Improved file format detection
+    • Better handling of complex geometries
+    • Advanced encoding support
+
 tracker=
 repository=https://github.com/AlexKobyakov/mif_to_shp_converter
-tags=converter,mapinfo,mif,tab,shapefile,geojson
+tags=converter,mapinfo,mif,tab,shapefile,geojson,enhanced,processing,algorithms,v3,major,release,professional,gis
 homepage=
 category=Vector
 icon=icon.png
@@ -17,7 +47,10 @@ experimental=False
 deprecated=False
 hasProcessingProvider=no
 
-changelog=2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI with icons, gradients, and improved design
-    2.1.0 - Added TAB format support, GeoJSON export, multilingual interface (Russian/English), enhanced metadata
-    2.0.0 - Added batch processing, multithreading, progress tracking and detailed logging
+changelog=3.0.0 - Major release; Next-generation processing architecture; Enhanced conversion algorithms; Improved error handling; Extended format support; Better memory management; Advanced geometry processing; Enhanced CRS transformations
+    2.4.0 - Minimalist GUI implementation; Simplified interface design
+    2.3.0 - Modular architecture implementation; GUI components separation
+    2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI design
+    2.1.0 - Added TAB format support, GeoJSON export, multilingual interface
+    2.0.0 - Added batch processing, multithreading, progress tracking
     1.0.0 - Initial version with basic MIF to SHP conversion
