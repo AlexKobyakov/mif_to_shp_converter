@@ -72,5 +72,46 @@ translations = {
     'donation_support_development': '☕ Support Plugin Development',
     'donation_plugin_info': 'this plugin is developed and maintained for free!',
     'donation_help_improve': 'Your support helps update and improve the plugin.',
-    'donation_every_coffee': 'Every coffee counts! ❤️'
+    'donation_every_coffee': 'Every coffee counts! ❤️',
+    
+    # CRS Examples dialog translations
+    'crs_examples_title': 'Coordinate System Examples',
+    'crs_examples_window_title': 'Coordinate System Format Examples',
+    'crs_examples_button': 'Coordinate System Examples',
+    'crs_examples_close': 'Close',
+    'crs_examples_content': '''🌍 EPSG FORMAT (recommended):
+   EPSG:4326    - WGS84 (latitude/longitude)
+   EPSG:3857    - Web Mercator (Google Maps)
+   EPSG:32637   - UTM Zone 37N
+   EPSG:2154    - RGF93 / Lambert-93 (France)
+   EPSG:3395    - World Mercator
+   EPSG:4269    - NAD83
+   EPSG:28992   - Amersfoort / RD New (Netherlands)
+
+📝 PROJ4 FORMAT:
+   +proj=longlat +datum=WGS84 +no_defs
+   +proj=utm +zone=37 +datum=WGS84 +units=m +no_defs
+   +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m
+
+🗂️ WKT FORMAT (Well-Known Text):
+   GEOGCS["WGS 84",
+     DATUM["WGS_1984",
+       SPHEROID["WGS 84",6378137,298.257223563]],
+     PRIMEM["Greenwich",0],
+     UNIT["degree",0.0174532925199433]]
+
+💡 RECOMMENDATIONS:
+   • Use EPSG codes for simplicity
+   • EPSG:4326 - universal WGS84 format
+   • For local projects use UTM zones
+   • Verify CRS correctness before conversion
+
+🔍 USEFUL RESOURCES:
+   • https://epsg.io/ - EPSG code search
+   • https://spatialreference.org/ - CRS database
+   • QGIS Browser - built-in CRS search''',
+    
+    # Header buttons translations
+    'header_support': 'Support',
+    'header_about_author': 'About Author'
 }

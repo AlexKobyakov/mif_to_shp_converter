@@ -71,5 +71,46 @@ translations = {
     'donation_support_development': '☕ 支持插件开发',
     'donation_plugin_info': '这个插件是免费开发和维护的！',
     'donation_help_improve': '您的支持帮助更新和改进插件。',
-    'donation_every_coffee': '每一杯咖啡都很重要！❤️'
+    'donation_every_coffee': '每一杯咖啡都很重要！❤️',
+    
+    # CRS Examples dialog translations
+    'crs_examples_title': '坐标系统示例',
+    'crs_examples_window_title': '坐标系统格式示例',
+    'crs_examples_button': '坐标系统示例',
+    'crs_examples_close': '关闭',
+    'crs_examples_content': '''🌍 EPSG格式（推荐）：
+   EPSG:4326    - WGS84（纬度/经度）
+   EPSG:3857    - Web Mercator（Google Maps）
+   EPSG:32637   - UTM Zone 37N
+   EPSG:2154    - RGF93 / Lambert-93（法国）
+   EPSG:3395    - World Mercator
+   EPSG:4269    - NAD83
+   EPSG:28992   - Amersfoort / RD New（荷兰）
+
+📝 PROJ4格式：
+   +proj=longlat +datum=WGS84 +no_defs
+   +proj=utm +zone=37 +datum=WGS84 +units=m +no_defs
+   +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m
+
+🗂️ WKT格式（Well-Known Text）：
+   GEOGCS["WGS 84",
+     DATUM["WGS_1984",
+       SPHEROID["WGS 84",6378137,298.257223563]],
+     PRIMEM["Greenwich",0],
+     UNIT["degree",0.0174532925199433]]
+
+💡 建议：
+   • 使用EPSG代码以简化操作
+   • EPSG:4326 - 通用WGS84格式
+   • 对于本地项目使用UTM区域
+   • 转换前验证CRS的正确性
+
+🔍 有用资源：
+   • https://epsg.io/ - EPSG代码搜索
+   • https://spatialreference.org/ - CRS数据库
+   • QGIS Browser - 内置CRS搜索''',
+    
+    # Header buttons translations
+    'header_support': '支持',
+    'header_about_author': '关于作者'
 }

@@ -47,16 +47,20 @@ class CrsExamplesDialog(QDialog):
     
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle('📋 Примеры систем координат')
+        from ..translation_manager import translations
+        
+        self.setWindowTitle(f'📋 {translations.get_text("crs_examples_title")}')
         self.setMinimumSize(600, 500)
         self.setupUi()
     
     def setupUi(self):
         """Настройка интерфейса"""
+        from ..translation_manager import translations
+        
         layout = QVBoxLayout(self)
         
         # Заголовок
-        title = QLabel('📋 Примеры форматов систем координат')
+        title = QLabel(f'📋 {translations.get_text("crs_examples_window_title")}')
         title.setStyleSheet("""
             QLabel {
                 font-size: 16px;
@@ -83,44 +87,10 @@ class CrsExamplesDialog(QDialog):
             }
         """)
         
-        examples_content = """
-🌍 ФОРМАТ EPSG (рекомендуемый):
-   EPSG:4326    - WGS84 (широта/долгота)
-   EPSG:3857    - Web Mercator (Google Maps)
-   EPSG:32637   - UTM Zone 37N
-   EPSG:2154    - RGF93 / Lambert-93 (Франция)
-   EPSG:3395    - World Mercator
-   EPSG:4269    - NAD83
-   EPSG:28992   - Amersfoort / RD New (Нидерланды)
-
-📝 ФОРМАТ PROJ4:
-   +proj=longlat +datum=WGS84 +no_defs
-   +proj=utm +zone=37 +datum=WGS84 +units=m +no_defs
-   +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m
-
-🗂️ ФОРМАТ WKT (Well-Known Text):
-   GEOGCS["WGS 84",
-     DATUM["WGS_1984",
-       SPHEROID["WGS 84",6378137,298.257223563]],
-     PRIMEM["Greenwich",0],
-     UNIT["degree",0.0174532925199433]]
-
-💡 РЕКОМЕНДАЦИИ:
-   • Используйте EPSG коды для простоты
-   • EPSG:4326 - универсальный формат WGS84
-   • Для локальных проектов используйте UTM зоны
-   • Проверьте корректность CRS перед конвертацией
-
-🔍 ПОЛЕЗНЫЕ РЕСУРСЫ:
-   • https://epsg.io/ - поиск EPSG кодов
-   • https://spatialreference.org/ - база CRS
-   • QGIS Browser - встроенный поиск CRS
-        """
-        
-        examples_text.setPlainText(examples_content)
+        examples_text.setPlainText(translations.get_text('crs_examples_content'))
         
         # Кнопка закрытия
-        close_button = QPushButton('✅ Закрыть')
+        close_button = QPushButton(f'✅ {translations.get_text("crs_examples_close")}')
         close_button.setStyleSheet("""
             QPushButton {
                 background: qlineargradient(x1:0, y1:0, x2:0, y2:1,

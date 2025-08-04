@@ -72,7 +72,7 @@ class HeaderWidget(QFrame):
         main_layout.addWidget(self.controls_widget)
     
     def createLanguageSelector(self, layout):
-        """Создание селектора языка - простая версия без сложной настройки palette"""
+        """Создание селектора языка"""
         # Контейнер для языкового селектора
         lang_container = QWidget()
         lang_layout = QHBoxLayout(lang_container)
@@ -91,7 +91,7 @@ class HeaderWidget(QFrame):
             }
         """)
         
-        # Комбобокс языков - простая версия без сложных настроек
+        # Комбобокс языков
         self.language_combo = QComboBox()
         self.language_combo.setFixedSize(140, 32)  # Увеличиваем размер
         self.language_combo.addItems([
@@ -100,7 +100,60 @@ class HeaderWidget(QFrame):
             "🇧🇷 Português", "🇩🇪 Deutsch"
         ])
         
-        # Простые и надежные стили - как в рабочей версии 3.4.1
+        # Устанавливаем палитру для выпадающего списка
+        from qgis.PyQt.QtGui import QPalette
+        from qgis.PyQt.QtCore import Qt
+        
+        # Настраиваем палитру
+        palette = self.language_combo.palette()
+        palette.setColor(QPalette.Base, Qt.white)
+        palette.setColor(QPalette.Text, Qt.black)
+        palette.setColor(QPalette.Window, Qt.white)
+        palette.setColor(QPalette.WindowText, Qt.black)
+        palette.setColor(QPalette.Button, Qt.white)
+        palette.setColor(QPalette.ButtonText, Qt.black)
+        self.language_combo.setPalette(palette)
+        
+        # Принудительно устанавливаем свойства view
+        from qgis.PyQt.QtGui import QColor
+        
+        # Получаем view и принудительно настраиваем его
+        view = self.language_combo.view()
+        
+        # Создаем новую палитру с явными цветами
+        view_palette = view.palette()
+        view_palette.setColor(view_palette.Base, QColor(255, 255, 255))  # Белый фон
+        view_palette.setColor(view_palette.Text, QColor(0, 0, 0))        # Черный текст
+        view_palette.setColor(view_palette.Window, QColor(255, 255, 255))
+        view_palette.setColor(view_palette.WindowText, QColor(0, 0, 0))
+        view_palette.setColor(view_palette.Highlight, QColor(52, 152, 219))       # Синяя подсветка
+        view_palette.setColor(view_palette.HighlightedText, QColor(255, 255, 255)) # Белый текст
+        view.setPalette(view_palette)
+        
+        # Очень простые стили для view
+        view.setStyleSheet("""
+            * {
+                background-color: white !important;
+                color: black !important;
+            }
+            QListView {
+                background: white !important;
+                color: black !important;
+                border: 2px solid gray;
+                font-size: 11px;
+                font-weight: bold;
+            }
+            QListView::item {
+                padding: 8px;
+                color: black !important;
+                background: white !important;
+                border: none;
+            }
+            QListView::item:selected {
+                background: #3498db !important;
+                color: white !important;
+            }
+        """)
         self.language_combo.setStyleSheet("""
             QComboBox {
                 background: rgba(255, 255, 255, 0.2);

@@ -301,6 +301,10 @@ class MifToShpDialog(QDialog):
         # Обновление заголовка окна
         self.setWindowTitle(f"🎯 {translations.get_text('window_title')}")
         
+        # Обновление кнопок в заголовке
+        self.header.donation_button.setText(f"☕ {translations.get_text('header_support')}")
+        self.header.author_button.setText(f"👤 {translations.get_text('header_about_author')}")
+        
         # Обновление табов настроек
         self.settings_tabs.setTabText(0, f"📥📤 {translations.get_text('input_output')}")
         self.settings_tabs.setTabText(1, f"⚙️ {translations.get_text('processing_options')}")
@@ -328,6 +332,7 @@ class MifToShpDialog(QDialog):
         
         self.processing_widget.crs_group.setTitle(f"🌍 {translations.get_text('coordinate_system')}")
         self.processing_widget.crs_hint_label.setText(f"📝 {translations.get_text('crs_format_hint')}")
+        self.processing_widget.examples_button.setText(f"📋 {translations.get_text('crs_examples_button')}")
         self.processing_widget.add_to_project_cb.setText(f"✅ {translations.get_text('add_to_project')}")
         
         # Обновление прогресса

@@ -71,5 +71,46 @@ translations = {
     'donation_support_development': '☕ دعم تطوير المكون الإضافي',
     'donation_plugin_info': 'هذا المكون الإضافي يتم تطويره وصيانته مجانًا!',
     'donation_help_improve': 'دعمك يساعد في تحديث وتحسين المكون الإضافي.',
-    'donation_every_coffee': 'كل قهوة مهمة! ❤️'
+    'donation_every_coffee': 'كل قهوة مهمة! ❤️',
+    
+    # CRS Examples dialog translations
+    'crs_examples_title': 'أمثلة أنظمة الإحداثيات',
+    'crs_examples_window_title': 'أمثلة تنسيقات أنظمة الإحداثيات',
+    'crs_examples_button': 'أمثلة أنظمة الإحداثيات',
+    'crs_examples_close': 'إغلاق',
+    'crs_examples_content': '''🌍 تنسيق EPSG (موصى به):
+   EPSG:4326    - WGS84 (خط العرض/خط الطول)
+   EPSG:3857    - Web Mercator (Google Maps)
+   EPSG:32637   - UTM Zone 37N
+   EPSG:2154    - RGF93 / Lambert-93 (فرنسا)
+   EPSG:3395    - World Mercator
+   EPSG:4269    - NAD83
+   EPSG:28992   - Amersfoort / RD New (هولندا)
+
+📝 تنسيق PROJ4:
+   +proj=longlat +datum=WGS84 +no_defs
+   +proj=utm +zone=37 +datum=WGS84 +units=m +no_defs
+   +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m
+
+🗂️ تنسيق WKT (Well-Known Text):
+   GEOGCS["WGS 84",
+     DATUM["WGS_1984",
+       SPHEROID["WGS 84",6378137,298.257223563]],
+     PRIMEM["Greenwich",0],
+     UNIT["degree",0.0174532925199433]]
+
+💡 التوصيات:
+   • استخدم رموز EPSG للبساطة
+   • EPSG:4326 - تنسيق WGS84 عالمي
+   • للمشاريع المحلية استخدم مناطق UTM
+   • تحقق من صحة CRS قبل التحويل
+
+🔍 موارد مفيدة:
+   • https://epsg.io/ - بحث رموز EPSG
+   • https://spatialreference.org/ - قاعدة بيانات CRS
+   • QGIS Browser - بحث CRS مدمج''',
+    
+    # Header buttons translations
+    'header_support': 'دعم',
+    'header_about_author': 'حول المؤلف'
 }
