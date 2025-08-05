@@ -1,94 +1,24 @@
 [general]
 name=MIF/TAB to SHP/GeoJSON Converter
-qgisMinimumVersion=3.0
-qgisMaximumVersion=3.99
-description=Ultimate UI/UX refinements with complete translation coverage and enhanced header design
-version=3.5.0
-author=Кобяков Александр Викторович (Alex Kobyakov)
+qgisMinimumVersion=3.4
+description=Professional converter for MapInfo files with custom coordinate systems, batch processing and multilingual support
+version=3.6.0
+author=Alex Kobyakov
 email=kobyakov@lesburo.ru
-
-about=🎨 Ultimate UI/UX refinements bringing complete translation coverage and professional header design.
-    
-    🌍 Complete Translation Coverage:
-    • ✅ 100% multilingual support for ALL components (9 languages)
-    • 🔧 Added missing translations for CRS Examples dialog
-    • 📱 Full localization of header buttons and tooltips
-    • 🌐 Dynamic language switching for all interface elements
-    • 📚 Comprehensive translation management across all modules
-    • 🎯 Perfect consistency in multilingual experience
-    
-    🎨 Enhanced Header Design:
-    • 📏 Redesigned header layout with proper alignment and sizing
-    • 🔘 Enlarged buttons (32px height) for better accessibility
-    • ⚖️ All header elements perfectly aligned on single horizontal line
-    • 🎨 Modern gradients, hover effects and visual polish
-    • 📱 Improved usability and professional appearance
-    • 🌐 Responsive design for all supported languages
-    
-    🔧 Technical Improvements:
-    • 🐛 Fixed language dropdown visibility issues with simplified approach
-    • 🏗️ Modular HeaderWidget architecture for maintainability
-    • ⚡ Optimized CSS styles without conflicts or redundancy
-    • 🔄 Seamless integration with existing translation system
-    • 📊 Enhanced code quality and error handling
-    • 🎯 Backward compatibility with all existing features
-    
-    🏆 Professional Polish:
-    • 🎨 Consistent visual design language throughout interface
-    • 📱 Enhanced accessibility compliance and usability
-    • 🌐 Perfect RTL language support for Arabic text
-    • 🔍 Improved tooltips and user guidance
-    • ✨ Modern interaction patterns and feedback
-    • 🎯 Enterprise-grade UI/UX standards
-
-tracker=
+about=Professional MapInfo Converter for converting MIF/TAB files to Shapefile and GeoJSON formats. Specialized for files with custom coordinate systems not available in standard libraries. Features batch processing, multithreading performance, and multilingual interface with 9 languages support. Ideal for cadastral data conversion and surveying projects.
+tracker=https://github.com/AlexKobyakov/mif_to_shp_converter/issues
 repository=https://github.com/AlexKobyakov/mif_to_shp_converter
-tags=converter,mapinfo,mif,tab,shapefile,geojson,multilingual,donation,tbank,tinkoff,translations,modular,russian,international,v3.4,gis,ui,ux,header,design
-homepage=
+changelog=3.6.0 - Enhanced metadata and menu integration
+    3.5.0 - UI improvements
+    3.4.0 - Translation coverage
+    3.3.0 - Donation system
+    3.2.0 - Performance boost
+    3.0.0 - Major overhaul
+    2.0.0 - Batch processing
+    1.0.0 - Initial release
+tags=mapinfo, converter, mif, tab, shapefile, geojson, batch, multithreading, coordinate-systems, cadastral, local-projections, custom-crs, surveying, municipal-gis, multilingual
+homepage=https://github.com/AlexKobyakov/mif_to_shp_converter
 category=Vector
 icon=icon.png
 experimental=False
 deprecated=False
-hasProcessingProvider=no
-
-changelog=3.5.0 - Enhanced UI visibility and multilingual text display improvements:
-    • 🎯 Fixed control buttons visibility - buttons "Start Conversion", "Cancel", "Clear Logs" now always visible without scrolling
-    • 📱 Moved control buttons to dedicated fixed area between settings and results for better UX
-    • 🌍 Fixed text truncation issues when switching languages in GUI elements
-    • 🔧 Removed fixed button sizes, implemented adaptive sizing for all language texts
-    • 📐 Enhanced tab sizing with minimum width constraints for proper text display
-    • 🎨 Improved header design by removing version number for cleaner appearance
-    • ⚙️ Added automatic size recalculation when switching languages
-    • 🧪 Added comprehensive testing tools for UI fixes validation
-    • 💡 Maintained full architectural compatibility while improving user experience
-    • 🌐 Perfect text display across all 9 supported languages without truncation
-    3.4.0 - Ultimate UI/UX refinements with complete translation coverage and enhanced header design:
-    • 🌍 Added missing translations for CRS Examples dialog (9 languages: RU/EN/ZH/HI/ES/AR/FR/PT/DE)
-    • 🔧 Fixed translation system integration for coordinate system examples component  
-    • 📱 Complete localization coverage - now 100% of interface elements support all languages
-    • 🎨 Redesigned header layout with professional alignment and modern button styling
-    • 📏 Enlarged header buttons (32px height) and aligned all elements on single horizontal line
-    • 🔘 Enhanced language selector, support button, and author button with modern gradients
-    • 🎨 Added sophisticated hover effects and visual polish throughout header interface
-    • 🐛 Fixed critical language dropdown visibility issue with simplified and reliable approach
-    • 🏗️ Implemented modular HeaderWidget architecture for better maintainability
-    • ⚡ Optimized CSS styles and removed conflicting palette configurations
-    • 🌐 Perfect RTL language support and responsive design for all supported languages
-    • 📚 Enhanced translation management with dynamic updates for all interface components
-    • 🎯 Maintained full backward compatibility while significantly improving user experience
-    3.3.0 - Enhanced donation system and modular translations architecture: 
-    • 💳 Replaced PayPal donation with T-Bank (Tinkoff) support for Russian users
-    • 🌍 Full multilingual localization for donation dialog (9 languages: RU/EN/ZH/HI/ES/AR/FR/PT/DE)
-    • 📁 Refactored translations to modular architecture - each language in separate file
-    • 🚀 Improved translation management system with dynamic loading and fallback support
-    • 🔄 Maintained full backward compatibility with existing translation system
-    • 🎨 Enhanced donation dialog UI consistency across all supported languages
-    3.2.0 - Final optimizations; Ultimate performance (60% faster than v3.0); Advanced memory management; Perfect threading; Enhanced UX; Professional-grade reliability; Complete documentation; Visual polish; Code cleanup; Enterprise-ready
-    3.1.0 - Critical bug fixes; Performance optimizations; Enhanced stability
-    3.0.0 - Major release; Next-generation processing architecture
-    2.4.0 - Minimalist GUI implementation; Simplified interface
-    2.3.0 - Modular architecture implementation; GUI components separation
-    2.2.0 - Added Chinese, Hindi, Spanish languages; Modern UI design
-    2.1.0 - Added TAB format support, GeoJSON export, multilingual interface
-    2.0.0 - Added batch processing, multithreading, progress tracking
-    1.0.0 - Initial version with basic MIF to SHP conversion

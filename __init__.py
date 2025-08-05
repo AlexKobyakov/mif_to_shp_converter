@@ -7,7 +7,7 @@ Author: Кобяков Александр Викторович (Alex Kobyakov)
 Email: kobyakov@lesburo.ru
 Organization: Lesburo
 Year: 2025
-Version: 2.3.0
+Version: 3.6.0
 
 Modular Architecture:
 - mif_to_shp_converter.py: Main plugin class

@@ -19,7 +19,8 @@ from qgis.core import QgsApplication
 from qgis.utils import iface
 
 from .translation_manager import translations
-from .gui import MifToShpDialog
+# Не импортируем gui здесь, чтобы избежать проблем с импортом
+# from .gui import MifToShpDialog
 
 
 class MifToShpConverter:
@@ -36,7 +37,7 @@ class MifToShpConverter:
         
         # Действие плагина
         self.action = None
-        self.menu = 'MIF/TAB Converter'
+        self.menu = 'MIF/TAB Converter'  # Короткое название для меню
         
         # Диалог
         self.dialog = None
@@ -121,27 +122,84 @@ class MifToShpConverter:
         """Создание GUI плагина"""
         # Создание действия
         icon_path = os.path.join(self.plugin_dir, 'icon.png')
+        
+        # Получаем переведенное название
+        plugin_name = translations.get_text('window_title') or 'MIF/TAB to SHP/GeoJSON Converter'
+        
         self.action = QAction(
             QIcon(icon_path),
-            '🎯 MIF/TAB to SHP/GeoJSON Converter',
+            f'🎯 {plugin_name}',
             self.iface.mainWindow()
         )
         
         # Подключение действия
         self.action.triggered.connect(self.run)
         self.action.setEnabled(True)
-        self.action.setToolTip(translations.get_text('window_title'))
-        self.action.setStatusTip(translations.get_text('window_title'))
+        self.action.setToolTip(plugin_name)
+        self.action.setStatusTip(plugin_name)
 
-        # Добавление в меню и панель инструментов
+        # Добавление в меню Vector и панель инструментов
+        # Пробуем разные способы добавления в меню
+        try:
+            # Метод 1: Добавление через addPluginToVectorMenu
+            self.iface.addPluginToVectorMenu(self.menu, self.action)
+            print(f"Successfully added plugin '{self.menu}' to Vector menu using addPluginToVectorMenu")
+        except Exception as e:
+            print(f"Method 1 failed: {e}")
+            
+            try:
+                # Метод 2: Прямое добавление в меню Vector
+                vector_menu = self.iface.vectorMenu()
+                if vector_menu:
+                    vector_menu.addAction(self.action)
+                    print(f"Successfully added plugin using direct vector menu access")
+                else:
+                    print("Vector menu not found")
+            except Exception as e2:
+                print(f"Method 2 also failed: {e2}")
+                
+                try:
+                    # Метод 3: Добавление в общее меню плагинов
+                    self.iface.addPluginToMenu(self.menu, self.action)
+                    print(f"Successfully added plugin '{self.menu}' to Plugins menu using addPluginToMenu")
+                except Exception as e3:
+                    print(f"All methods failed. Last error: {e3}")
+        
+        # Добавление на панель инструментов (это работает)
         self.iface.addToolBarIcon(self.action)
-        self.iface.addPluginToVectorMenu(self.menu, self.action)
 
     def unload(self):
         """Удаление плагина"""
-        # Удаление из меню и панели инструментов
-        self.iface.removePluginVectorMenu(self.menu, self.action)
-        self.iface.removeToolBarIcon(self.action)
+        try:
+            # Удаление с панели инструментов (всегда работает)
+            self.iface.removeToolBarIcon(self.action)
+            
+            # Пробуем разные способы удаления из меню
+            try:
+                # Метод 1: Удаление через removePluginVectorMenu
+                self.iface.removePluginVectorMenu(self.menu, self.action)
+                print(f"Successfully removed plugin '{self.menu}' from Vector menu")
+            except Exception as e:
+                print(f"removePluginVectorMenu failed: {e}")
+                
+                try:
+                    # Метод 2: Прямое удаление из меню Vector
+                    vector_menu = self.iface.vectorMenu()
+                    if vector_menu:
+                        vector_menu.removeAction(self.action)
+                        print(f"Successfully removed plugin using direct vector menu access")
+                except Exception as e2:
+                    print(f"Direct vector menu removal failed: {e2}")
+                    
+                    try:
+                        # Метод 3: Удаление из общего меню плагинов
+                        self.iface.removePluginMenu(self.menu, self.action)
+                        print(f"Successfully removed plugin '{self.menu}' from Plugins menu")
+                    except Exception as e3:
+                        print(f"All removal methods failed. Last error: {e3}")
+            
+        except Exception as e:
+            print(f"Error during plugin unload: {e}")
         
         # Очистка переводчика
         if self.translator:
@@ -149,13 +207,22 @@ class MifToShpConverter:
 
     def run(self):
         """Запуск плагина"""
-        # Создание диалога при первом запуске
-        if self.dialog is None:
-            self.dialog = MifToShpDialog()
+        try:
+            # Создание диалога при первом запуске
+            if self.dialog is None:
+                from .gui import MifToShpDialog
+                self.dialog = MifToShpDialog()
+                print("Dialog created successfully")
+            
+            # Показ диалога
+            result = self.dialog.exec_()
+            
+            # Обработка результата (при необходимости)
+            if result:
+                pass  # Диалог был принят
         
-        # Показ диалога
-        result = self.dialog.exec_()
-        
-        # Обработка результата (при необходимости)
-        if result:
-            pass  # Диалог был принят
+        except Exception as e:
+            print(f"Error running plugin: {e}")
+            # Показываем ошибку пользователю
+            from qgis.PyQt.QtWidgets import QMessageBox
+            QMessageBox.critical(self.iface.mainWindow(), 'Ошибка плагина', f'Ошибка при запуске плагина:\n{str(e)}')

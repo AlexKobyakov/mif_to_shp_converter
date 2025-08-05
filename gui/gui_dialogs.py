@@ -47,6 +47,7 @@ class AuthorInfoDialog(QMessageBox):
             <p><b>👨‍💻 {translations.get_text('author')}:</b> {plugin_info['author']}<br>
             <i>(Alex Kobyakov)</i></p>
             <p><b>📧 {translations.get_text('contact')}:</b> <a href="mailto:{plugin_info['email']}">{plugin_info['email']}</a></p>
+            <p><b>💬 Telegram:</b> <a href="https://t.me/AKobyakov" style="color: #0088cc; text-decoration: none;">@AKobyakov</a></p>
             <p><b>📅 {translations.get_text('year')}:</b> 2025</p>
             <p><b>🏢 {translations.get_text('organization')}:</b> Lesburo</p>
             <hr style="border: 1px solid #bdc3c7;">
