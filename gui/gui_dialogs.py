@@ -21,21 +21,38 @@ class AuthorInfoDialog(QMessageBox):
     
     def setupUi(self):
         """Настройка интерфейса"""
-        self.setWindowTitle('👤 Author Information')
+        from ..translation_manager import translations
+        
+        # Получаем информацию о плагине
+        try:
+            from ..mif_to_shp_converter import MifToShpConverter
+            plugin_info = MifToShpConverter.get_plugin_info()
+        except Exception:
+            plugin_info = {
+                'name': 'MIF/TAB to SHP/GeoJSON Converter',
+                'version': 'Unknown',
+                'author': 'Кобяков Александр Викторович',
+                'email': 'kobyakov@lesburo.ru'
+            }
+        
+        self.setWindowTitle(f'👤 {translations.get_text("header_about_author")}')
         self.setTextFormat(Qt.RichText)
-        self.setText("""
+        self.setText(f"""
         <div style="text-align: center; padding: 20px;">
-            <h2 style="color: #3498db;">🎯 MIF/TAB to SHP/GeoJSON Converter</h2>
+            <h2 style="color: #3498db;">🎯 {plugin_info['name']}</h2>
+            <p style="color: #7f8c8d; font-size: 14px; margin: 5px 0;">
+                <b>📜 {translations.get_text('version')}:</b> v{plugin_info['version']}
+            </p>
             <hr style="border: 1px solid #bdc3c7;">
-            <p><b>👨‍💻 Author:</b> Кобяков Александр Викторович<br>
+            <p><b>👨‍💻 {translations.get_text('author')}:</b> {plugin_info['author']}<br>
             <i>(Alex Kobyakov)</i></p>
-            <p><b>📧 Email:</b> <a href="mailto:kobyakov@lesburo.ru">kobyakov@lesburo.ru</a></p>
-            <p><b>📅 Year:</b> 2025</p>
-            <p><b>🏢 Organization:</b> Lesburo</p>
+            <p><b>📧 {translations.get_text('contact')}:</b> <a href="mailto:{plugin_info['email']}">{plugin_info['email']}</a></p>
+            <p><b>📅 {translations.get_text('year')}:</b> 2025</p>
+            <p><b>🏢 {translations.get_text('organization')}:</b> Lesburo</p>
             <hr style="border: 1px solid #bdc3c7;">
             <p style="color: #7f8c8d; font-style: italic;">
-            Professional GIS data conversion tool<br>
-            Supporting multiple languages and formats
+            {translations.get_text('plugin_description')}<br>
+            {translations.get_text('multilingual_support')}
             </p>
         </div>
         """)

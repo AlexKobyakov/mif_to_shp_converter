@@ -58,8 +58,8 @@ class MifToShpDialog(QDialog):
         from ..translation_manager import translations
         
         self.setWindowTitle(f"🎯 {translations.get_text('window_title')}")
-        self.setMinimumSize(1000, 750)  # Увеличен минимальный размер
-        self.resize(1200, 850)  # Увеличен размер по умолчанию
+        self.setMinimumSize(1000, 800)  # Увеличен минимальный размер
+        self.resize(1200, 900)  # Увеличен размер по умолчанию
         
         # Центрирование окна
         self.setWindowFlags(Qt.Dialog | Qt.WindowTitleHint | Qt.WindowCloseButtonHint)
@@ -92,13 +92,17 @@ class MifToShpDialog(QDialog):
         # Верхняя часть - настройки
         self.createSettingsArea()
         
+        # Средняя часть - кнопки управления (фиксированная позиция)
+        self.createControlButtonsArea()
+        
         # Нижняя часть - прогресс и результаты
         self.createResultsArea()
         
         # Добавление в сплиттер
         self.main_splitter.addWidget(self.settings_area)
+        self.main_splitter.addWidget(self.control_buttons_area)
         self.main_splitter.addWidget(self.results_area)
-        self.main_splitter.setSizes([500, 250])  # Больше места для настроек
+        self.main_splitter.setSizes([450, 80, 200])  # Настройки, кнопки, результаты
     
     def createSettingsArea(self):
         """Создание области настроек"""
@@ -117,17 +121,38 @@ class MifToShpDialog(QDialog):
         # Создание табов настроек
         self.createSettingsTabs()
         
-        # Кнопки управления
-        self.control_buttons = ControlButtonsWidget()
-        
-        # Добавление в макет
+        # Добавление в макет (убираем кнопки отсюда)
         settings_layout.addWidget(self.settings_tabs)
-        settings_layout.addWidget(self.control_buttons)
         settings_layout.addStretch()
         
         # Установка виджета в scroll area
         self.settings_scroll.setWidget(settings_container)
         self.settings_area = self.settings_scroll
+    
+    def createControlButtonsArea(self):
+        """Создание фиксированной области кнопок управления"""
+        # Контейнер для кнопок
+        self.control_buttons_area = QFrame()
+        self.control_buttons_area.setFixedHeight(80)  # Фиксированная высота
+        self.control_buttons_area.setStyleSheet("""
+            QFrame {
+                background-color: #f8f9fa;
+                border-top: 2px solid #e9ecef;
+                border-bottom: 2px solid #e9ecef;
+            }
+        """)
+        
+        # Макет для кнопок
+        buttons_layout = QHBoxLayout(self.control_buttons_area)
+        buttons_layout.setContentsMargins(20, 15, 20, 15)
+        buttons_layout.setSpacing(15)
+        
+        # Кнопки управления
+        self.control_buttons = ControlButtonsWidget()
+        self.control_buttons.setContentsMargins(0, 0, 0, 0)  # Убираем отступы
+        
+        # Добавляем кнопки в макет
+        buttons_layout.addWidget(self.control_buttons)
     
     def createSettingsTabs(self):
         """Создание табов настроек"""
@@ -145,6 +170,7 @@ class MifToShpDialog(QDialog):
                 margin-right: 2px;
                 border-top-left-radius: 6px;
                 border-top-right-radius: 6px;
+                min-width: 180px;
             }
             QTabBar::tab:selected {
                 background: #3498db;
@@ -301,9 +327,16 @@ class MifToShpDialog(QDialog):
         # Обновление заголовка окна
         self.setWindowTitle(f"🎯 {translations.get_text('window_title')}")
         
-        # Обновление кнопок в заголовке
-        self.header.donation_button.setText(f"☕ {translations.get_text('header_support')}")
-        self.header.author_button.setText(f"👤 {translations.get_text('header_about_author')}")
+        # Обновление кнопок в заголовке с принудительным пересчетом размеров
+        support_text = f"☕ {translations.get_text('header_support')}"
+        author_text = f"👤 {translations.get_text('header_about_author')}"
+        
+        self.header.donation_button.setText(support_text)
+        self.header.author_button.setText(author_text)
+        
+        # Принудительное обновление размеров кнопок
+        self.header.donation_button.adjustSize()
+        self.header.author_button.adjustSize()
         
         # Обновление табов настроек
         self.settings_tabs.setTabText(0, f"📥📤 {translations.get_text('input_output')}")
@@ -357,6 +390,13 @@ class MifToShpDialog(QDialog):
             
         self.control_buttons.cancel_button.setText(f"❌ {translations.get_text('cancel')}")
         self.control_buttons.clear_log_button.setText(f"🧹 {translations.get_text('clear_logs')}")
+        
+        # Принудительное обновление размеров для табов и содержимого
+        self.settings_tabs.adjustSize()
+        self.settings_tabs.tabBar().adjustSize()
+        self.header.adjustSize()
+        self.adjustSize()
+        self.update()
     
     def log_message(self, message):
         """Добавление сообщения в лог с цветовой раскраской"""

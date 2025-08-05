@@ -113,5 +113,14 @@ translations = {
     
     # Header buttons translations
     'header_support': 'Поддержка',
-    'header_about_author': 'Об авторе'
+    'header_about_author': 'Об авторе',
+    
+    # Author dialog translations
+    'version': 'Версия',
+    'author': 'Автор',
+    'contact': 'Контакт',
+    'year': 'Год',
+    'organization': 'Организация',
+    'plugin_description': 'Профессиональный инструмент конвертации ГИС данных',
+    'multilingual_support': 'Поддерживает множество языков и форматов'
 }

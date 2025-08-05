@@ -41,7 +41,7 @@ class HeaderWidget(QFrame):
         main_layout.setSpacing(20)
         
         # Заголовок
-        self.title_label = QLabel("🎯 MIF/TAB to SHP/GeoJSON Converter v2.3")
+        self.title_label = QLabel("🎯 MIF/TAB to SHP/GeoJSON Converter")
         self.title_label.setStyleSheet("""
             QLabel {
                 color: white;
@@ -136,7 +136,8 @@ class HeaderWidget(QFrame):
         from ..translation_manager import translations
         
         self.donation_button = ModernButton(f"☕ {translations.get_text('header_support')}")
-        self.donation_button.setFixedSize(120, 32)  # Увеличиваем размер
+        # Убрали фиксированный размер, оставили только минимальную высоту
+        self.donation_button.setMinimumSize(100, 32)
         self.donation_button.setToolTip("❤️ Поддержите разработку плагина!")
         self.donation_button.setStyleSheet("""
             QPushButton {
@@ -168,7 +169,8 @@ class HeaderWidget(QFrame):
         from ..translation_manager import translations
         
         self.author_button = ModernButton(f"👤 {translations.get_text('header_about_author')}")
-        self.author_button.setFixedSize(100, 32)  # Увеличиваем размер
+        # Убрали фиксированный размер, оставили только минимальную высоту
+        self.author_button.setMinimumSize(80, 32)
         self.author_button.setToolTip("📝 Информация об авторе плагина")
         self.author_button.setStyleSheet("""
             QPushButton {
@@ -472,7 +474,7 @@ class ControlButtonsWidget(QWidget):
     def setupUi(self):
         """Настройка интерфейса"""
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(0, 15, 0, 0)  # Увеличен верхний отступ
+        layout.setContentsMargins(0, 0, 0, 0)  # Убираем отступы со всех сторон
         layout.setSpacing(15)  # Увеличено расстояние
         
         self.convert_button = ModernButton("🚀 Начать конвертацию")

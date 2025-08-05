@@ -9,6 +9,7 @@ Year: 2025
 """
 
 import os
+import configparser
 
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
@@ -39,6 +40,62 @@ class MifToShpConverter:
         
         # Диалог
         self.dialog = None
+    
+    @staticmethod
+    def get_plugin_version():
+        """Чтение версии плагина из metadata.txt"""
+        try:
+            plugin_dir = os.path.dirname(__file__)
+            metadata_file = os.path.join(plugin_dir, 'metadata.txt')
+            
+            if os.path.exists(metadata_file):
+                config = configparser.ConfigParser()
+                config.read(metadata_file, encoding='utf-8')
+                
+                if 'general' in config and 'version' in config['general']:
+                    return config['general']['version']
+            
+            return "Unknown"
+        except Exception as e:
+            print(f"Error reading plugin version: {e}")
+            return "Unknown"
+    
+    @staticmethod
+    def get_plugin_info():
+        """Получение полной информации о плагине из metadata.txt"""
+        try:
+            plugin_dir = os.path.dirname(__file__)
+            metadata_file = os.path.join(plugin_dir, 'metadata.txt')
+            
+            if os.path.exists(metadata_file):
+                config = configparser.ConfigParser()
+                config.read(metadata_file, encoding='utf-8')
+                
+                if 'general' in config:
+                    return {
+                        'name': config['general'].get('name', 'MIF/TAB to SHP/GeoJSON Converter'),
+                        'version': config['general'].get('version', 'Unknown'),
+                        'author': config['general'].get('author', 'Unknown'),
+                        'email': config['general'].get('email', ''),
+                        'description': config['general'].get('description', '')
+                    }
+            
+            return {
+                'name': 'MIF/TAB to SHP/GeoJSON Converter',
+                'version': 'Unknown',
+                'author': 'Unknown',
+                'email': '',
+                'description': ''
+            }
+        except Exception as e:
+            print(f"Error reading plugin info: {e}")
+            return {
+                'name': 'MIF/TAB to SHP/GeoJSON Converter',
+                'version': 'Unknown',
+                'author': 'Unknown',
+                'email': '',
+                'description': ''
+            }
 
     def initTranslator(self):
         """Инициализация переводов"""

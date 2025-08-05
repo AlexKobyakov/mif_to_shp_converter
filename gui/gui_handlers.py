@@ -171,6 +171,15 @@ class GuiEventHandlers:
         
         # Очистка результатов
         self.dialog.results_table.setRowCount(0)
+        
+        # Логирование начала конвертации с версией плагина
+        try:
+            from ..mif_to_shp_converter import MifToShpConverter
+            plugin_version = MifToShpConverter.get_plugin_version()
+            self.dialog.log_message(f"🎯 MIF/TAB to SHP/GeoJSON Converter v{plugin_version}")
+        except Exception:
+            pass
+            
         self.dialog.log_message(f"🚀 === {translations.get_text('start_conversion')} {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ===")
         
         # Настройка UI для процесса конвертации

@@ -3,7 +3,7 @@ name=MIF/TAB to SHP/GeoJSON Converter
 qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
 description=Ultimate UI/UX refinements with complete translation coverage and enhanced header design
-version=3.4.0
+version=3.5.0
 author=Кобяков Александр Викторович (Alex Kobyakov)
 email=kobyakov@lesburo.ru
 
@@ -51,7 +51,18 @@ experimental=False
 deprecated=False
 hasProcessingProvider=no
 
-changelog=3.4.0 - Ultimate UI/UX refinements with complete translation coverage and enhanced header design:
+changelog=3.5.0 - Enhanced UI visibility and multilingual text display improvements:
+    • 🎯 Fixed control buttons visibility - buttons "Start Conversion", "Cancel", "Clear Logs" now always visible without scrolling
+    • 📱 Moved control buttons to dedicated fixed area between settings and results for better UX
+    • 🌍 Fixed text truncation issues when switching languages in GUI elements
+    • 🔧 Removed fixed button sizes, implemented adaptive sizing for all language texts
+    • 📐 Enhanced tab sizing with minimum width constraints for proper text display
+    • 🎨 Improved header design by removing version number for cleaner appearance
+    • ⚙️ Added automatic size recalculation when switching languages
+    • 🧪 Added comprehensive testing tools for UI fixes validation
+    • 💡 Maintained full architectural compatibility while improving user experience
+    • 🌐 Perfect text display across all 9 supported languages without truncation
+    3.4.0 - Ultimate UI/UX refinements with complete translation coverage and enhanced header design:
     • 🌍 Added missing translations for CRS Examples dialog (9 languages: RU/EN/ZH/HI/ES/AR/FR/PT/DE)
     • 🔧 Fixed translation system integration for coordinate system examples component  
     • 📱 Complete localization coverage - now 100% of interface elements support all languages
